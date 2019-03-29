@@ -491,8 +491,6 @@ class Sekitei:
             return ar / s
 
         X = np.empty((1000, self.number_of_features))
-        print self.number_of_features
-        print
         i = 0
         for url in qlinks:
             X[i] = self.get_url_coordinates(url)
@@ -501,9 +499,7 @@ class Sekitei:
             X[i] = self.get_url_coordinates(url)
             i += 1
 
-        print X
-
-        self.clustering = MeanShift(bandwidth=2).fit(X)
+        self.clustering = MeanShift(bandwidth=1.5).fit(X)
         labels = self.clustering.labels_
         number_of_clusters = self.clustering.cluster_centers_.shape[0]
         self.quota = np.zeros(number_of_clusters)
@@ -517,8 +513,9 @@ class Sekitei:
         # todo
 
     def fetch_url(self, url):
-        coordinates = self.get_url_coordinates(url)
-        label = self.clustering.predict(coordinates)[0][0]
+        coordinates = np.array([self.get_url_coordinates(url)])
+
+        label = self.clustering.predict(coordinates)[0]
         if self.quota[label] > 0:
             self.quota[label] -= 1
             return True
