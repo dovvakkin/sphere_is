@@ -47,8 +47,8 @@ def shufle_urls_from_file(FILE_NAME):
 #
 # paths
 #
-INPUT_PATH = './data/'
-CHECK_PATH = './check/'
+INPUT_PATH = '../HA_1/data/'
+CHECK_PATH = '../HA_1/check/'
 
 if not os.path.exists(INPUT_PATH):
     print >> sys.stderr, "Missing input path " + INPUT_PATH

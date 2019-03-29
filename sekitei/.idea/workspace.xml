@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f1bf3c3-56ce-4d85-b152-c654b583defa" name="Default Changelist" comment="" />
+    <list default="true" id="6f1bf3c3-56ce-4d85-b152-c654b583defa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sekitei.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sekitei.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HA_1/extract_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/HA_1/extract_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HA_2/check-segments.py" beforeDir="false" afterPath="$PROJECT_DIR$/HA_2/check-segments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HA_2/sekitei_segments.py" beforeDir="false" afterPath="$PROJECT_DIR$/HA_2/sekitei_segments.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +23,51 @@
     <favorites_list name="sekitei" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HA_2/check-segments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+              <folding>
+                <element signature="e#17#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HA_2/sekitei_segments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="492" column="53" lean-forward="true" selection-start-line="492" selection-start-column="53" selection-end-line="492" selection-end-column="53" />
+              <folding>
+                <element signature="e#18#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HA_2/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -27,7 +78,11 @@
       <find>\w</find>
       <find>.jpg</find>
       <find>oot</find>
+      <find>;</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -36,6 +91,9 @@
         <option value="$PROJECT_DIR$/HA_1/check-features.py" />
         <option value="$PROJECT_DIR$/HA_1/data.txt" />
         <option value="$PROJECT_DIR$/HA_1/extract_features.py" />
+        <option value="$PROJECT_DIR$/HA_2/check-segments.py" />
+        <option value="$PROJECT_DIR$/HA_2/test.py" />
+        <option value="$PROJECT_DIR$/HA_2/sekitei_segments.py" />
       </list>
     </option>
   </component>
@@ -43,12 +101,12 @@
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -59,18 +117,25 @@
             <path>
               <item name="sekitei" type="b2602c69:ProjectViewProjectNode" />
               <item name="sekitei" type="462c0819:PsiDirectoryNode" />
+              <item name="HA_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sekitei" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sekitei" type="462c0819:PsiDirectoryNode" />
               <item name="HA_2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.check-features">
+  <component name="RunManager" selected="Python.check-segments">
     <configuration name="check-features" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="sekitei" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -99,6 +164,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HA_1/check-features.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="check-segments" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="sekitei" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HA_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HA_2/check-segments.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,9 +216,56 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sekitei_segments" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="sekitei" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HA_2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HA_2/sekitei_segments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="sekitei" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.conda/envs/sekitei/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HA_2" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HA_2/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.extract_features" />
       <item itemvalue="Python.check-features" />
+      <item itemvalue="Python.sekitei_segments" />
+      <item itemvalue="Python.check-segments" />
+      <item itemvalue="Python.test" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -150,21 +284,30 @@
       <workItem from="1553250769500" duration="921000" />
       <workItem from="1553260783018" duration="5304000" />
       <workItem from="1553437134248" duration="8804000" />
+      <workItem from="1553505282851" duration="775000" />
+      <workItem from="1553606255495" duration="7721000" />
+      <workItem from="1553701492612" duration="5639000" />
+      <workItem from="1553785393678" duration="408000" />
+      <workItem from="1553797523584" duration="204000" />
+      <workItem from="1553799160726" duration="457000" />
+      <workItem from="1553855316928" duration="7725000" />
+      <workItem from="1553890535478" duration="2294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62335000" />
+    <option name="totallyTimeSpent" value="87558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.225" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49518073" visible="true" weight="0.15902779" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5048193" side_tool="true" weight="0.40327382" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32902467" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32902467" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39952996" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -196,6 +339,11 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sekitei$test.coverage" NAME="test Coverage Results" MODIFIED="1553892885547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HA_2" />
+    <SUITE FILE_PATH="coverage/sekitei$sekitei_segments.coverage" NAME="sekitei_segments Coverage Results" MODIFIED="1553892641535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HA_2" />
+    <SUITE FILE_PATH="coverage/sekitei$check_segments.coverage" NAME="check-segments Coverage Results" MODIFIED="1553893444817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HA_2" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/HA_1/data/urls.zr.examined">
       <provider selected="true" editor-type-id="text-editor">
@@ -209,16 +357,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HA_1/data/urls.wikipedia.general">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HA_1/check-features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="77" column="74" selection-start-line="77" selection-start-column="74" selection-end-line="77" selection-end-column="74" />
-          <folding>
-            <element signature="e#630#643#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HA_1/check/wikipedia.fea">
       <provider selected="true" editor-type-id="text-editor">
@@ -246,9 +384,7 @@
         <state relative-caret-position="-35562" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HA_1/data/data2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_1/data/data2.txt" />
     <entry file="file://$PROJECT_DIR$/HA_1/data2.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -288,16 +424,6 @@
         <state relative-caret-position="-181" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HA_1/extract_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-214">
-          <caret line="265" column="58" selection-start-line="265" selection-start-column="58" selection-end-line="265" selection-end-column="58" />
-          <folding>
-            <element signature="e#17#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HA_1/check/zr.fea.res">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -316,6 +442,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-174">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_1/check-features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1042">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+          <folding>
+            <element signature="e#630#643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_1/extract_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="195" column="30" selection-start-line="195" selection-start-column="19" selection-end-line="195" selection-end-column="30" />
+          <folding>
+            <element signature="e#17#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/sekitei/lib/python2.7/site-packages/sklearn/cluster/mean_shift_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="442" selection-start-line="442" selection-end-line="442" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/sekitei/lib/python2.7/site-packages/sklearn/metrics/pairwise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="439" selection-start-line="439" selection-end-line="439" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.conda/envs/sekitei/lib/python2.7/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="551" selection-start-line="551" selection-end-line="551" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_2/check-segments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding>
+            <element signature="e#17#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_2/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HA_2/sekitei_segments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="492" column="53" lean-forward="true" selection-start-line="492" selection-start-column="53" selection-end-line="492" selection-end-column="53" />
+          <folding>
+            <element signature="e#18#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

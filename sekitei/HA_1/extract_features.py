@@ -226,7 +226,7 @@ def cut_list_by_treshhold(l, treshhold):
     # filter(lambda x: x[1] <= treshhold, l)
     return [x for x in l if x[1] > treshhold]
 
-
+# def extract_features(INPUT_FILE_1, INPUT_FILE_2, OUTPUT_FILE):
 def extract_features(INPUT_FILE_1, INPUT_FILE_2, OUTPUT_FILE):
     global param_name
     global param_key_value
@@ -297,4 +297,5 @@ def extract_features(INPUT_FILE_1, INPUT_FILE_2, OUTPUT_FILE):
     f.close()
     l = create_features_list()
     l = cut_list_by_treshhold(l, tr)
-    write_feature_list_to_file(l, OUTPUT_FILE)
+    # write_feature_list_to_file(l, OUTPUT_FILE)
+    return l
