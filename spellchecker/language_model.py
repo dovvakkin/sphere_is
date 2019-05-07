@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 import numpy as np
-reload(sys)
-sys.setdefaultencoding('utf8')
+import json
+from error_model import split
 
 class LanguageModel:
     def __init__(self):
@@ -16,14 +16,22 @@ class LanguageModel:
 
         self.all_words = set()
 
+    def load_json(self, json_path):
+        un_p, un_c, bin_p, bin_c, words = json.loads(open(json_path, "r").read())
+        self.un_prop, self.un_count, self.bin_prop, self.bin_count, self.all_words = un_p, un_c, bin_p, bin_c, words
+
+    def store_json(self, json_path):
+        file = open(json_path, "w")
+        file.write(json.dumps((self.un_prop, self.un_count, self.bin_prop, self.bin_count, self.all_words)))
+        file.close()
+
     def create_model(self, file_name):
         with open(file_name) as file:
             for line in file:
                 tab_ind = line.find('\t')
                 if tab_ind != -1:
                     line = line[tab_ind + 1:]
-                line = line.lower()
-                words = line.split(" ")
+                words = split(line)
 
                 self.all_words.update(set(words))
 
@@ -73,13 +81,13 @@ class LanguageModel:
     # print probabilities for all words
     def print_all_un(self):
         for ind in self.un_prop:
-            print "{}:\t{}".format(ind, self.un_prop[ind])
+            print ("{}:\t{}".format(ind, self.un_prop[ind]))
 
     # print probabilities for all words pairs
     def print_all_bin(self):
         for ind in self.bin_prop:
             for i_ind in self.bin_prop[ind]:
-                print "({}, {}):\t{}".format(ind, i_ind, self.bin_prop[ind][i_ind])
+                print ("({}, {}):\t{}".format(ind, i_ind, self.bin_prop[ind][i_ind]))
 
     def get_P_for_query(self, query):
         query = query.lower()
@@ -104,3 +112,8 @@ class LanguageModel:
 
     def get_all_words(self):
         return self.all_words
+
+if __name__ == "__main__":
+    lm = LanguageModel()
+    lm.create_model("queries_all.txt")
+    lm.store_json("language_model.json")
