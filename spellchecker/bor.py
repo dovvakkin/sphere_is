@@ -6,7 +6,10 @@ import numpy as np
 import copy
 import time
 
-MAX_DELETE = 3
+MAX_DELETE = 2
+
+MAX_INSERT = 2
+
 
 def timeit(method):
     def timed(*args, **kw):
@@ -77,7 +80,7 @@ class BORtree:
         result = {}
         go_down(self.root, "")
         for word in result:
-            print (word)
+            print(word)
 
     def is_in_tree(self, word):
         def go_down(node, word_as_list):
@@ -90,43 +93,64 @@ class BORtree:
             else:
                 return node.is_word_end
 
-
         return go_down(self.root, list(word))
 
     # sorted(a.items(), key=lambda kv: (kv[1], kv[0]))
     @timeit
-    def indistrinct_search(self, word, threshold=1300):
-        def go_down(node, word_as_list, res, err, deleted):
+    # TODO dynamic threshold
+    def indistrinct_search(self, word, threshold=1500):
+        def go_down(node, word_as_list, res, err, deleted, inserted):
             if word_as_list:
                 c = word_as_list.pop(0)
                 if err < threshold:
                     bigram = node.lit + c
                     # insert
-                    # if node.lit + "~" in self.bin_stats:
-                    #     for child in node.children:
-                    #         if node.lit + child in self.bin_stats[node.lit + "~"]:
-                    #             appended = word_as_list.insert(0, c)
-                    #             word_as_list.pop(0)
-                    #             go_down(node.children[child], appended, res + child,
-                    #                     err + 1 / self.bin_stats[node.lit + "~"][node.lit + child], deleted)
+                    if inserted < MAX_INSERT:
+                        if node.lit + "~" in self.bin_stats:
+                            for child in node.children:
+                                if node.lit + child in self.bin_stats[node.lit + "~"]:
+                                    word_as_list.insert(0, c)
+                                    appended = copy.deepcopy(word_as_list)
+                                    word_as_list.pop(0)
+                                    go_down(node.children[child],
+                                            appended,
+                                            res + child,
+                                            err + 1 / self.bin_stats[node.lit + "~"][node.lit + child],
+                                            deleted,
+                                            inserted + 1)
+                    # no changes
                     if c in node.children:
-                        go_down(node.children[c], copy.deepcopy(word_as_list), res + c, err, deleted)
+                        go_down(node.children[c],
+                                copy.deepcopy(word_as_list),
+                                res + c,
+                                err,
+                                deleted,
+                                inserted)
 
                     if bigram in self.bin_stats:
                         for child in node.children:
+                            # swap
                             if node.lit + child in self.bin_stats[bigram]:
-                                go_down(node.children[child], copy.deepcopy(word_as_list), (res + child),
-                                        err + 1 / self.bin_stats[bigram][node.lit + child], deleted)
+                                go_down(node.children[child],
+                                        copy.deepcopy(word_as_list),
+                                        (res + child),
+                                        err + 1 / self.bin_stats[bigram][node.lit + child],
+                                        deleted,
+                                        inserted)
                         # delete
                         if deleted < MAX_DELETE:
                             if node.lit + '~' in self.bin_stats[bigram]:
-                                go_down(node, copy.deepcopy(word_as_list), res,
-                                        err + 1 / self.bin_stats[bigram][node.lit + '~'], deleted + 1)
+                                go_down(node,
+                                        copy.deepcopy(word_as_list),
+                                        res,
+                                        err + 1 / self.bin_stats[bigram][node.lit + '~'],
+                                        deleted + 1,
+                                        inserted)
             else:
                 if node.is_word_end:
                     result[res] = err
                     return
 
         result = {}
-        go_down(self.root, list(word), "", 0, 0)
+        go_down(self.root, list(word), "", 0, 0, 0)
         print(sorted(result.items(), key=lambda kv: (kv[1], kv[0])))

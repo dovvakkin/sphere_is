@@ -28,4 +28,4 @@ if __name__ == "__main__":
     tree.load_tree()
     # tree.print_tree()
     print (tree.is_in_tree("сматре"))
-    tree.indistrinct_search("смотреь")
+    tree.indistrinct_search("кшка")
