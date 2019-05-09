@@ -33,6 +33,11 @@ class LanguageModel:
                     line = line[tab_ind + 1:]
                 words = split(line)
 
+                ###
+                # if 'крк' in words:
+                #     print (line)
+                ###
+
                 self.all_words.update(set(words))
 
                 len_words = len(words)

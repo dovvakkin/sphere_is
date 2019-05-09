@@ -6,7 +6,7 @@ import numpy as np
 
 EMPTY_LEX = "~"
 MAX_WORD_LEN = 15
-SPECIAL_LEX = {"_", "-", "—", "'"}
+SPECIAL_LEX = {}
 
 
 def split(string):
