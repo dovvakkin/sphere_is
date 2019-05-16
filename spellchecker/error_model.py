@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
+reload(sys)
+sys.setdefaultencoding('UTF8')
 import json
 import numpy as np
 
@@ -11,6 +13,8 @@ SPECIAL_LEX = {}
 
 def split(string):
     word_list = []
+    if type(string) != unicode:
+        string = unicode(string, 'utf-8')
     string = string.lower()
     word = str()
     for char in string:
@@ -37,20 +41,11 @@ class ErrorModel:
         self.bin_stats = dict()
         self.bin_size = 0
 
-    def bi_symbols(string):
-        if not string:
-            return ["^_"]
-        new_string = ["^" + string[0]]
-        for i in range(len(string) - 1):
-            new_string += [string[i:i + 2]]
-        new_string += [string[-1:] + "_"]
-        return new_string
-
-    def load_json(self, json_path):
+    def load_json(self, json_path="pretrained_models/bin_stats.json"):
         (size, stat) = json.loads(open(json_path, "r").read())
         self.bin_size, self.bin_stats = size, stat
 
-    def store_json(self, json_path):
+    def store_json(self, json_path="pretrained_models/bin_stats.json"):
         file = open(json_path, "w")
         file.write(json.dumps((self.bin_size, self.bin_stats)))
         file.close()
@@ -62,7 +57,7 @@ class ErrorModel:
     def prichesat_statistiku(self):
         for orig in self.statistics.keys():
             for fix in self.statistics[orig].keys():
-                self.statistics[orig][fix] /= self._statistics_size
+                self.statistics[orig][fix] = float(self.statistics[orig][fix]) / self._statistics_size
 
     def get_weighted_distance(self, a, b):
         n, m = len(a), len(b)
@@ -87,7 +82,7 @@ class ErrorModel:
     def _get_statistics(self, orig, fit):
         if orig in self.statistics and fit in self.statistics[orig]:
             return self.statistics[orig][fit]
-        return 1 / 1000  # TODO flexible (newer sow this case)
+        return 1.0 / 1000
 
     def _add_statistics(self, orig, fix):
         self.statistics.setdefault(orig, dict())
@@ -189,12 +184,14 @@ class ErrorModel:
 
 # represent word as bigrams
 def bi_symbols(string):
+    if type(string) != unicode:
+        string = unicode(string, 'utf-8')
     if not string:
-        return ["^_"]
-    new_string = ["^" + string[0]]
+        return [u"^_"]
+    new_string = [u"^" + string[0]]
     for i in range(len(string) - 1):
         new_string += [string[i:i + 2]]
-    new_string += [string[-1:] + "_"]
+    new_string += [string[-1:] + u"_"]
     return new_string
 
 
@@ -204,4 +201,4 @@ if __name__ == "__main__":
     # error.store_json("bin_stats.json")
 
     error.load_json("bin_stats.json")
-    error.print_bin()
+    print split("Смотреть порно онлайн")

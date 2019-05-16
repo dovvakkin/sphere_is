@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 import sys
+
+reload(sys)
+sys.setdefaultencoding('UTF8')
 import numpy as np
 import json
 from error_model import split
+
 
 class LanguageModel:
     def __init__(self):
@@ -11,19 +15,10 @@ class LanguageModel:
         self.bin_prop = {}  # {first_word : {second_word : prop}}
         self.bin_count = 0.0
 
-        self.default_un_prop = 0
-        self.default_bin_prop = 0
+        self.default_un_prop = 0.0
+        self.default_bin_prop = 0.0
 
         self.all_words = set()
-
-    def load_json(self, json_path):
-        un_p, un_c, bin_p, bin_c, words = json.loads(open(json_path, "r").read())
-        self.un_prop, self.un_count, self.bin_prop, self.bin_count, self.all_words = un_p, un_c, bin_p, bin_c, words
-
-    def store_json(self, json_path):
-        file = open(json_path, "w")
-        file.write(json.dumps((self.un_prop, self.un_count, self.bin_prop, self.bin_count, self.all_words)))
-        file.close()
 
     def create_model(self, file_name):
         with open(file_name) as file:
@@ -68,13 +63,18 @@ class LanguageModel:
             self.default_bin_prop = 1 / self.bin_count
 
     def get_un_prop(self, word):
-        word = word.encode("utf8")
+        if type(word) != unicode:
+            word = unicode('utf-8')
         if word in self.un_prop:
             return self.un_prop[word]
         else:
             return self.default_un_prop
 
     def get_bin_prop(self, first, second):
+        if type(first) != unicode:
+            first = unicode('utf-8')
+        if type(second) != unicode:
+            second = unicode('utf-8')
         if first in self.bin_prop:
             if second in self.bin_prop[first]:
                 return self.bin_prop[first][second]
@@ -96,7 +96,7 @@ class LanguageModel:
 
     def get_P_for_query(self, query):
         query = query.lower()
-        words = query.split(" ")
+        words = split(query)
         len_words = len(words)
         probs = np.zeros(len_words + (len_words - 1))
         probs_ind = 0
@@ -118,7 +118,8 @@ class LanguageModel:
     def get_all_words(self):
         return self.all_words
 
+
 if __name__ == "__main__":
     lm = LanguageModel()
     lm.create_model("queries_all.txt")
-    lm.store_json("language_model.json")
+    lm.store_json("pretrained_models/bin_stats.json")

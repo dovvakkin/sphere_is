@@ -1,35 +1,21 @@
 # -*- coding: utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('UTF8')
 import json
 import pickle
-import sys
-import numpy as np
 import copy
-import time
+
+from timeit_decorator import timeit
 
 MAX_DELETE = 2
 
-MAX_INSERT = 2
-
-
-def timeit(method):
-    def timed(*args, **kw):
-        ts = time.time()
-        result = method(*args, **kw)
-        te = time.time()
-        if 'log_time' in kw:
-            name = kw.get('log_name', method.__name__.upper())
-            kw['log_time'][name] = int((te - ts) * 1000)
-        else:
-            print('\n%r  %2.2f ms' % \
-                  (method.__name__, (te - ts) * 1000))
-        return result
-
-    return timed
+MAX_INSERT = 1
 
 
 class TreeItself:
     def __init__(self):
-        self.lit = "~"  # literal of current node
+        self.lit = u"~"  # literal of current node
         self.is_word_end = False  # is there words ends in this node
         self.children = {}
 
@@ -37,20 +23,20 @@ class TreeItself:
 class BORtree:
     def __init__(self, bin_stats, default_prob):
         self.root = TreeItself()
-        self.root.lit = "^"
+        self.root.lit = u"^"
         self.bin_stats = bin_stats  # {2gram : {f_f : {f_s : prob}}}
         self.default_prob = default_prob
 
     def store_tree(self):
-        with open("tree_root.pickle", "wb") as f:
+        with open("pretrained_models/tree_root.pickle", "wb") as f:
             pickle.dump(self.root, f)
-        with open("tree.json", "w") as f:
+        with open("pretrained_models/tree.json", "w") as f:
             f.write(json.dumps((self.bin_stats, self.default_prob)))
 
     def load_tree(self):
-        with open("tree_root.pickle", "rb") as f:
+        with open("pretrained_models/tree_root.pickle", "rb") as f:
             self.root = pickle.load(f)
-        with open("tree.json", "r") as f:
+        with open("pretrained_models/tree.json", "r") as f:
             self.bin_stats, self.default_prob = json.loads(f.read())
 
     def fill_BORtree(self, set_of_words):
@@ -66,7 +52,11 @@ class BORtree:
                 add_word_to_bor(copy.deepcopy(literals), bor.children[lt])
 
         for word in set_of_words:
-            literals = list(word)
+            if type(word) != unicode:
+                uword = unicode(word, 'utf-8')
+            else:
+                uword = word
+            literals = list(uword)
             if literals:
                 add_word_to_bor(copy.deepcopy(literals), self.root)
 
@@ -93,12 +83,14 @@ class BORtree:
             else:
                 return node.is_word_end
 
+        if type(word) != unicode:
+            word = unicode(word, 'utf-8')
         return go_down(self.root, list(word))
 
     # sorted(a.items(), key=lambda kv: (kv[1], kv[0]))
     @timeit
     # TODO dynamic threshold
-    def indistrinct_search(self, word, threshold=1500):
+    def indistrict_search(self, word, threshold=3500):
         def go_down(node, word_as_list, res, err, deleted, inserted):
             if word_as_list:
                 c = word_as_list.pop(0)
@@ -115,7 +107,7 @@ class BORtree:
                                     go_down(node.children[child],
                                             appended,
                                             res + child,
-                                            err + 1 / self.bin_stats[node.lit + "~"][node.lit + child],
+                                            err + 1.0 / self.bin_stats[node.lit + "~"][node.lit + child],
                                             deleted,
                                             inserted + 1)
                     # no changes
@@ -134,7 +126,7 @@ class BORtree:
                                 go_down(node.children[child],
                                         copy.deepcopy(word_as_list),
                                         (res + child),
-                                        err + 1 / self.bin_stats[bigram][node.lit + child],
+                                        err + 1.0 / self.bin_stats[bigram][node.lit + child],
                                         deleted,
                                         inserted)
                         # delete
@@ -143,7 +135,7 @@ class BORtree:
                                 go_down(node,
                                         copy.deepcopy(word_as_list),
                                         res,
-                                        err + 1 / self.bin_stats[bigram][node.lit + '~'],
+                                        err + 1.0 / self.bin_stats[bigram][node.lit + '~'],
                                         deleted + 1,
                                         inserted)
             else:
@@ -152,5 +144,10 @@ class BORtree:
                     return
 
         result = {}
-        go_down(self.root, list(word), "", 0, 0, 0)
-        print(sorted(result.items(), key=lambda kv: (kv[1], kv[0])))
+        if type(word) != unicode:
+            word = unicode(word, 'utf-8')
+        go_down(self.root, list(word), u"", 0, 0, 0)
+        # print(sorted(result.items(), key=lambda kv: (kv[1], kv[0])))
+        sort = sorted(result.items(), key=lambda kv: (kv[1], kv[0]))
+        # print ([word[0] for word in sort])
+        return [word[0] for word in sort] if sort else word
